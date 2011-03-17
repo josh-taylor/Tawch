@@ -1,0 +1,5 @@
+*.apk
+tawch_keystore
+.project
+.classpath
+default.properties

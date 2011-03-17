@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/parent_ll"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="30dip"
+    android:layout_gravity="center"
+    android:background="@drawable/background">
+    <LinearLayout
+    	android:orientation="vertical"
+    	android:layout_height="wrap_content"
+    	android:layout_width="fill_parent"
+    	android:layout_gravity="center">
+	    <ImageView
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:layout_gravity="center"
+	    	android:src="@drawable/tawch_logo" />
+	    <Button
+	    	android:id="@+id/turn_on_button"
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="wrap_content"
+	    	android:textSize="24sp"
+	    	android:paddingTop="20dip"
+	    	android:paddingBottom="20dip"
+	    	android:text="@string/turn_on_label" />
+	</LinearLayout>
+</LinearLayout>

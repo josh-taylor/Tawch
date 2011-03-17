@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory
+		android:title="General Settings">
+		<ListPreference
+			android:key="flash_type"
+			android:title="@string/flash_type_title"
+			android:summary="@string/flash_type_summary"
+			android:defaultValue="flash"
+			android:entries="@array/flash_type_array"
+			android:entryValues="@array/flash_type_values" />
+	</PreferenceCategory>
+</PreferenceScreen>

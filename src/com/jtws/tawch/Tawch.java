@@ -17,7 +17,11 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class Tawch extends Activity implements OnClickListener {
+	private final String TAG = "com.jtws.Tawch";
+	
 	private boolean torch_state = false;
+	
+	private Button toggleButton;
 	private Camera camera;
 	
     /** Called when the activity is first created. */
@@ -27,7 +31,7 @@ public class Tawch extends Activity implements OnClickListener {
         setContentView(R.layout.main);
         
         // Setup click listeners for all the buttons
-        View toggleButton = findViewById(R.id.turn_on_button);
+        toggleButton = (Button)findViewById(R.id.turn_on_button);
         toggleButton.setOnClickListener(this);
     }
     
@@ -53,56 +57,49 @@ public class Tawch extends Activity implements OnClickListener {
      * or turn the flash on 
      */
     public void toggleFlash(Context context) {
-    	Button toggleButton = (Button)findViewById(R.id.turn_on_button);
-    	
-    	if(torch_state) {
-    		// Turn torch off
-    		torch_state = false;
-    		toggleButton.setText(R.string.turn_on_label);
-    		
-    		if(camera != null) {
-    			camera.release();
-    		}
-    		
-    		// Revert the setting of keeping the screen always on
-    		View v = findViewById(R.id.parent_ll);
-    		v.setKeepScreenOn(false);
+    	if(Prefs.getFlashType(context).equals("screen")) {
+    		Intent i = new Intent(this, ScreenTorch.class);
+    		startActivity(i);
     	} else {
-    		Log.d("org.jtws.Tawch", "Flash type pref: " + Prefs.getFlashType(context));
-    		
-    		// Check the preferences to see what to use
-    		if(Prefs.getFlashType(context).equals("flash")) {
-	    		// Turn torch on using the camera flash
-    			try {
-    				camera = Camera.open();
-    			} catch(RuntimeException e) {
-    				// If it fails to open the camera, use the screen instead
+    		if(!torch_state) {
+    	        // Load the camera
+    	        try {
+    	        	camera = Camera.open();
+    	        } catch (RuntimeException e) {
+    	        	Log.e(TAG, "Error finding camera, using phone screen", e);
+    	        	
+    	        	camera = null;
+    	        }
+    	        
+    	        // If a camera can't be found, or in use, use the screen
+    			if(camera == null) {
     				Intent i = new Intent(this, ScreenTorch.class);
     				startActivity(i);
+    			} else {
+    				// Set the flash mode to "torch"
+    				Parameters params = camera.getParameters();
+    				params.setFlashMode(Parameters.FLASH_MODE_TORCH);
+    				camera.setParameters(params);
+    				
+    				torch_state = true;
+    				
+    				// Keep the screen always on
+    				View v = findViewById(R.id.parent_ll);
+    				v.setKeepScreenOn(true);
+    				
+    				// Set the button to turn off
+    				toggleButton.setText(R.string.turn_off_label);
     			}
     		} else {
-    			camera = null;
-    		}
-    		
-    		// Check that a camera has been found
-    		if(camera != null) {
-	    		// Set the flash to be always on
-	    		Parameters params = camera.getParameters();
-	    		params.setFlashMode(Parameters.FLASH_MODE_TORCH);
-	    		camera.setParameters(params);
-
-        		torch_state = true;
-        		
-        		// When the torch is in use, keep the screen on
-        		View v = findViewById(R.id.parent_ll);
-        		v.setKeepScreenOn(true);
-
-        		// Set the button to the turn off message
-        		toggleButton.setText(R.string.turn_off_label);
-    		} else {
-    			// Turn torch on using the screen, by setting a white background
-    			Intent i = new Intent(this, ScreenTorch.class);
-    			startActivity(i);
+    			if(camera != null) {
+    				camera.release();
+    			}
+    			
+    			View v = findViewById(R.id.parent_ll);
+    			v.setKeepScreenOn(false);
+    			
+    			torch_state = false;
+    			toggleButton.setText(R.string.turn_on_label);
     		}
     	}
     }
@@ -117,10 +114,8 @@ public class Tawch extends Activity implements OnClickListener {
 		
 		torch_state = false;
     	
-		// Release the camera if it's in use
-    	if(camera != null) {
-    		camera.release();
-    	}
+		// Release the camera
+    	camera.release();
     }
     
     @Override

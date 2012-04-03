@@ -139,7 +139,7 @@ public class Tawch extends Activity {
     }
     
     @Override
-    public void onPause() {    	
+    public void onPause() {
 		// Reset the button text and torch_state
 		Button toggleButton = (Button)findViewById(R.id.turn_on_button);
 		toggleButton.setText(R.string.turn_on_label);
@@ -158,7 +158,6 @@ public class Tawch extends Activity {
     @Override
     public void onResume() {
     	super.onResume();
-    	
     	// Attempt to reopen the camera
     	try {
     		camera = Camera.open();

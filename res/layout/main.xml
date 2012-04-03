@@ -1,48 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
     android:id="@+id/parent_ad"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@drawable/background"
+    android:layout_height="wrap_content"
+   	android:background="@drawable/background"
+    android:gravity="center"
     android:orientation="vertical" >
 
-	<RelativeLayout
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:gravity="center"
-	    android:orientation="vertical" >
+    <LinearLayout
+        android:id="@+id/parent_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical" >
 
-	    <LinearLayout
-	        android:id="@+id/parent_ll"
+	    <ImageView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_centerInParent="true"
-	        android:orientation="vertical" >
+	        android:layout_gravity="center_vertical"
+	        android:contentDescription="@string/main_title"
+	        android:src="@drawable/tawch_logo" />
 	
-		    <ImageView
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:layout_gravity="center_vertical"
-		        android:contentDescription="@string/main_title"
-		        android:src="@drawable/tawch_logo" />
-		
-		    <Button
-		        android:id="@+id/turn_on_button"
-		        android:layout_width="fill_parent"
-		        android:layout_height="wrap_content"
-		        android:paddingBottom="20dip"
-		        android:paddingTop="20dip"
-		        android:text="@string/turn_on_label"
-		        android:textSize="24sp" />
-	    </LinearLayout>
-	    
-	    <com.google.ads.AdView 
-	    	android:id="@+id/ad_view"
-	    	android:layout_alignParentBottom="true"
-	    	android:layout_width="fill_parent"
-	    	android:layout_height="wrap_content"
-	    	ads:adUnitId="a14de633775d5e5"
-	    	ads:adSize="BANNER"/>
-	</RelativeLayout>
-</LinearLayout>
+	    <Button
+	        android:id="@+id/turn_on_button"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:paddingBottom="20dip"
+	        android:paddingTop="20dip"
+	        android:text="@string/turn_on_label"
+	        android:textSize="24sp" />
+    </LinearLayout>
+    
+    <com.google.ads.AdView 
+    	android:id="@+id/ad_view"
+    	android:layout_alignParentBottom="true"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	ads:adUnitId="a14de633775d5e5"
+    	ads:adSize="BANNER"/>
+</RelativeLayout>

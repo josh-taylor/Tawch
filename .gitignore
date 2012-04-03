@@ -6,5 +6,6 @@ tawch_keystore
 # Eclipse Project Files
 .project
 .classpath
-default.properties
+.properties
 .settings
+.cfg

@@ -1,0 +1,8 @@
+# Android files
+*.apk
+tawch_keystore
+
+# Eclipse Project Files
+.project
+.classpath
+default.properties

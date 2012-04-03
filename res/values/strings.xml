@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Torch</string>
+    
+    <string name="main_title">Tawch</string>
+    <string name="turn_on_label">Turn On</string>
+    <string name="turn_off_label">Turn Off</string>
+    
+    <string name="settings_label">Settings</string>
+    <string name="settings_shortcut">s</string>
+    <string name="settings_title">Tawch Settings</string>
+    <string name="flash_type_title">Tawch Type</string>
+    <string name="flash_type_summary">Set whether to use the camera\'s flash or phone screen</string>
+    <string name="settings_close_label">Close Settings</string>
+    
+    <string name="share_label">Share</string>
+    <string name="share_subject">I want to let you know about Tawch!</string>
+    <string name="share_message">I have found Tawch in the Android marketplace!
+    	It lets you use your phone as a torch! http://goo.gl/COVNr</string>
+    
+    <string name="about_label">About</string>
+    <string name="about_shortcut">a</string>
+   	<string name="about_title">About Tawch</string>
+   	<string name="about_text">Tawch is an easy to use app, that
+   		turns your phone into a useable torch.\n\n
+   		Either by using the built-in camera flash, or 
+   		using your phones screen.\n\n
+   		Copyright 2011 Josh Taylor\n\n
+   		http://josh-taylor.net</string>
+   	<string name="about_close_label">Close</string>
+   	
+   	<string name="torch_title">White Screen</string>
+</resources>

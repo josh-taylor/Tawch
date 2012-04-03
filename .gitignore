@@ -4,10 +4,7 @@
 tawch_keystore
 
 # Eclipse Project Files
-=======
-*.apk
-tawch_keystore
->>>>>>> e658f48e1e1f3434326cd8285bc86b9028d14837
 .project
 .classpath
 default.properties
+.settings

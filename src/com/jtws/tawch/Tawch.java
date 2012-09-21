@@ -86,7 +86,7 @@ public class Tawch extends Activity {
     	if(torchState) {
     		flashState = Camera.Parameters.FLASH_MODE_TORCH;
     	} else {
-    		flashState = Camera.Parameters.FLASH_MODE_AUTO;
+    		flashState = Camera.Parameters.FLASH_MODE_OFF;
     	}
     	
     	// First attempt at setting the camera parameters
@@ -106,7 +106,7 @@ public class Tawch extends Activity {
     			if(torchState) {
     				flashState = "torch";
     			} else {
-    				flashState = "auto";
+    				flashState = "off";
     			}
     			
     			cameraParameters.set("flash-mode", flashState);

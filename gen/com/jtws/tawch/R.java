@@ -71,25 +71,26 @@ containing a value of this type.
         public static final int menu=0x7f090000;
     }
     public static final class string {
-        public static final int about_close_label=0x7f080011;
-        public static final int about_label=0x7f08000d;
-        public static final int about_shortcut=0x7f08000e;
-        public static final int about_text=0x7f080010;
-        public static final int about_title=0x7f08000f;
+        public static final int about_close_label=0x7f080012;
+        public static final int about_label=0x7f08000e;
+        public static final int about_shortcut=0x7f08000f;
+        public static final int about_text=0x7f080011;
+        public static final int about_title=0x7f080010;
+        public static final int app_label=0x7f080001;
         public static final int app_name=0x7f080000;
-        public static final int flash_type_summary=0x7f080008;
-        public static final int flash_type_title=0x7f080007;
-        public static final int main_title=0x7f080001;
-        public static final int settings_close_label=0x7f080009;
-        public static final int settings_label=0x7f080004;
-        public static final int settings_shortcut=0x7f080005;
-        public static final int settings_title=0x7f080006;
-        public static final int share_label=0x7f08000a;
-        public static final int share_message=0x7f08000c;
-        public static final int share_subject=0x7f08000b;
-        public static final int torch_title=0x7f080012;
-        public static final int turn_off_label=0x7f080003;
-        public static final int turn_on_label=0x7f080002;
+        public static final int flash_type_summary=0x7f080009;
+        public static final int flash_type_title=0x7f080008;
+        public static final int main_title=0x7f080002;
+        public static final int settings_close_label=0x7f08000a;
+        public static final int settings_label=0x7f080005;
+        public static final int settings_shortcut=0x7f080006;
+        public static final int settings_title=0x7f080007;
+        public static final int share_label=0x7f08000b;
+        public static final int share_message=0x7f08000d;
+        public static final int share_subject=0x7f08000c;
+        public static final int torch_title=0x7f080013;
+        public static final int turn_off_label=0x7f080004;
+        public static final int turn_on_label=0x7f080003;
     }
     public static final class xml {
         public static final int settings=0x7f040000;

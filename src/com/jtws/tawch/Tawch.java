@@ -16,7 +16,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.google.ads.*;
+import com.google.ads.AdRequest;
+import com.google.ads.AdView;
 
 public class Tawch extends Activity {
 	private final String TAG = "com.jtws.Tawch";
@@ -25,6 +26,7 @@ public class Tawch extends Activity {
 	
 	private Button toggleButton;
 	private Camera camera;
+	private AdView adview;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,8 +50,8 @@ public class Tawch extends Activity {
         adRequest.addTestDevice("6AE4AF6D0C4D2708108CAFA014D1C5A1");
         
         // Get an advert
-        AdView adView = (AdView)findViewById(R.id.ad_view);
-        adView.loadAd(adRequest);
+        adview = (AdView)findViewById(R.id.ad_view);
+        adview.loadAd(adRequest);
     }
     
     @Override
@@ -217,6 +219,12 @@ public class Tawch extends Activity {
     		
     		releaseCamera();
     	}
+    }
+    
+    @Override
+    public void onDestroy() {
+    	adview.destroy();
+    	super.onDestroy();
     }
     
     /**

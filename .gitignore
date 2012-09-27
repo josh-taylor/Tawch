@@ -1,4 +1,5 @@
 # Android files
+bin/
 *.apk
 tawch_keystore
 
